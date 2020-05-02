@@ -1,0 +1,21 @@
+@mixin FadeInMixin($axis, $shift) {
+  @keyframes FadeIn {
+    from {
+      opacity: 0;
+      transform: translate + $axis + "(" + $shift + ")";
+    }
+    to {
+      opacity: 1;
+      transform: translate + $axis + "(0)";
+    }
+  }
+}
+
+@keyframes expandInput {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(100% - 21rem);
+  }
+}

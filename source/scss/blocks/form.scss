@@ -2,6 +2,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .form__label {
@@ -44,6 +45,8 @@
   border-radius: 3rem;
   outline: none;
 
+  animation: expandInput 1000ms ease;
+
   &:focus {
     border: 1px solid $c-purple;
   }
@@ -79,7 +82,7 @@
 }
 
 .form__button {
-  flex-grow: 1;
+  width: 18rem;
 
   @media (orientation: portrait) {
     position: relative;
