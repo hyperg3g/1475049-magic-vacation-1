@@ -96,6 +96,9 @@
   font-size: 1.8rem;
   line-height: 2rem;
 
+  @include FadeInMixin(X, 50px);
+  animation: FadeIn 700ms ease;
+
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
     max-width: 340px;
