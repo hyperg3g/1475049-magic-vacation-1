@@ -1,13 +1,22 @@
-@mixin FadeInMixin($axis, $shift) {
-  @keyframes FadeIn {
-    from {
-      opacity: 0;
-      transform: translate + $axis + "(" + $shift + ")";
-    }
-    to {
-      opacity: 1;
-      transform: translate + $axis + "(0)";
-    }
+@keyframes FadeInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes FadeInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
