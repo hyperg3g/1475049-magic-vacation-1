@@ -93,9 +93,8 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.27;
-
-  @include FadeInMixin(Y, 50px);
-  animation: FadeIn 700ms ease;
+  
+  animation: FadeInFromBottom 700ms ease;
 
   @media (min-width: $stop-scaling) {
     width: 509px;
