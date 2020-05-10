@@ -3,6 +3,13 @@ export default () => {
   const prizesScreen = document.querySelector(`#prizes`);
   const rulesScreen = document.querySelector(`#rules`);
 
+  if (prizesScreen.classList.contains(`active`)) {
+    overlay.classList.add(`bg-overlay--active`);
+  }
+  if (rulesScreen.classList.contains(`active`)) {
+    overlay.classList.add(`bg-overlay--active`);
+  }
+
   const observerHanlder = (mutationsList) => {
     mutationsList.forEach((mutation) => {
       if (mutation.target.classList.contains(`active`)) {
