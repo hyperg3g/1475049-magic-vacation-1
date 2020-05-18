@@ -1,5 +1,5 @@
 import bgOverlay from './bg-overlay';
-import { formatNode } from './animate-text';
+import {formatNode} from './animate-text';
 
 export default () => {
   window.addEventListener(`load`, () => {
@@ -10,11 +10,11 @@ export default () => {
     bgOverlay();
 
     setTimeout(() => {
-      formatNode(introTitle)
+      formatNode(introTitle);
     }, 200);
 
     setTimeout(() => {
-      formatNode(introDate)
+      formatNode(introDate);
     }, 600);
   });
 };

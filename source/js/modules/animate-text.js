@@ -5,7 +5,7 @@ const formatWord = (word) => {
   return `<span class="animated-text">${formattedWord.join(``)}</span>`;
 };
 
-const formatNode = (node, options = {}) => {
+const formatNode = (node) => {
   const splittedNodeText = node.innerHTML.split(`\n`);
   const formattedText = splittedNodeText.map((word) => formatWord(word));
 
@@ -13,4 +13,4 @@ const formatNode = (node, options = {}) => {
   node.style.opacity = `1`;
 };
 
-export { formatNode };
+export {formatNode};
