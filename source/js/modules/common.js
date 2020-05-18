@@ -7,4 +7,4 @@ const rulesButtonLoad = () => {
   });
 };
 
-export {rulesButtonLoad};
+export { rulesButtonLoad };
