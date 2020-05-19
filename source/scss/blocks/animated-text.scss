@@ -1,18 +1,32 @@
 .animated-text {
-    display: flex;
-    clip-path: polygon(0 -20%, 100% -20%, 100% 100%, 0% 100%);
+  display: flex;
+  overflow: hidden;
 
-    span { 
-        will-change: transform;
-        transform: translate3d(0, 140px, 0);
-        animation: animateText 700ms ease forwards;
+  span {
+    will-change: transform;
+    transform: translate3d(0, 13rem, 0);
+    animation: animateText 700ms ease forwards;
 
-        &:nth-child(3n-1) {
-            animation-delay: 150ms;
-        }
-
-        &:nth-child(3n) {
-            animation-delay: 300ms;
-        }
+    &:nth-child(3n-1) {
+      animation-delay: 150ms;
     }
+
+    &:nth-child(3n) {
+      animation-delay: 300ms;
+    }
+  }
+}
+
+.intro__title {
+  .animated-text {
+    margin-top: -3rem;
+
+    @media (max-width: $tablet) and (orientation: portrait) {
+      margin-top: -1rem;
+    }
+  }
+}
+
+.active {
+  opacity: 1;
 }

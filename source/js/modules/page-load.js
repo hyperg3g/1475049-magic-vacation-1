@@ -10,10 +10,12 @@ export default () => {
     bgOverlay();
 
     setTimeout(() => {
+      introTitle.classList.add(`active`);
       formatNode(introTitle);
     }, 200);
 
     setTimeout(() => {
+      introDate.classList.add(`active`);
       formatNode(introDate);
     }, 600);
   });
