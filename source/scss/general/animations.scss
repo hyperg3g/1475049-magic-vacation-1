@@ -40,3 +40,9 @@
     width: calc(100% - 21rem);
   }
 }
+
+@keyframes animateText {
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
