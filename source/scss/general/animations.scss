@@ -46,3 +46,24 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+@keyframes prevControlMoveIn {
+  from {
+    transform: translateX(-5rem) rotate(-90deg);
+  }
+  to {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+
+@keyframes nextControlMoveIn {
+  from {
+    transform: translateX(5rem) rotate(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+  }
+}
