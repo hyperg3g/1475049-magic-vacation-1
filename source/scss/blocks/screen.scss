@@ -298,6 +298,16 @@
   background-size: cover;
   background-position: center;
 
+  &.active {
+    .slider__control--prev {
+      animation: prevControlMoveIn 500ms $sliderControlBezier forwards;
+    }
+  
+    .slider__control--next {
+      animation: nextControlMoveIn 500ms $sliderControlBezier forwards;
+    }
+  }
+
   @media (orientation: portrait) {
     background-size: auto calc(100vh - 13.8rem), 100% 25rem;
     background-position: top center, bottom center;
