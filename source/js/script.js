@@ -10,6 +10,7 @@ import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import pageLoad from './modules/page-load';
 import {rulesButtonLoad} from './modules/common';
+import timer from './modules/timer';
 
 // init modules
 mobileHeight();
@@ -25,3 +26,4 @@ rulesButtonLoad();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
+timer.init();
