@@ -168,6 +168,12 @@
       padding-left: 1.5rem;
     }
 
+    .prizes__desc b {
+      @media (min-width: $tablet) {
+        width: 72px;
+      }
+    }
+
     .prizes__icon {
       width: 18.8rem;
 
@@ -193,6 +199,13 @@
   &--codes {
     @media (max-width: $tablet) and (orientation: portrait) {
       padding-left: 0.8rem;
+    }
+
+    .prizes__desc b {
+      @media (min-width: $tablet) {
+        width: 250px;
+        text-align: right;
+      }
     }
 
     .prizes__icon {
