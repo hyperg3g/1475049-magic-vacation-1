@@ -9,9 +9,8 @@ import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import pageLoad from './modules/page-load';
-import {rulesButtonLoad} from './modules/common';
+import {rulesButtonLoad, setupAnimationsForPrizes} from './modules/common';
 import timer from './modules/timer';
-import Counter from './modules/counter';
 
 // init modules
 mobileHeight();
@@ -24,13 +23,7 @@ form();
 social();
 pageLoad();
 rulesButtonLoad();
-
-const counters = document.querySelectorAll(`.prizes__desc`);
-const counter1 = new Counter(7, counters[1]);
-const counter2 = new Counter(900, counters[2], {startNumber: 11, fps: 12, duration: 1000});
-
-counter1.init();
-counter2.init();
+setupAnimationsForPrizes();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
