@@ -9,7 +9,7 @@ import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import pageLoad from './modules/page-load';
-import {rulesButtonLoad} from './modules/common';
+import {rulesButtonLoad, setupAnimationsForPrizes} from './modules/common';
 import timer from './modules/timer';
 
 // init modules
@@ -23,6 +23,7 @@ form();
 social();
 pageLoad();
 rulesButtonLoad();
+setupAnimationsForPrizes();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
