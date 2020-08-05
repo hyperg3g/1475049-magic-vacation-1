@@ -33,34 +33,52 @@ const winPrimaryCanvas = document.querySelector(`#win-primary`);
 const ww = window.innerWidth;
 const wh = window.innerHeight;
 
+let walrusTranslateY = 0;
+
+// const testWW = 741;
+// const testWH = 350;
+
+// winPrimaryCanvas.width = testWW;
+// winPrimaryCanvas.height = testWH;
+
 winPrimaryCanvas.width = ww;
 winPrimaryCanvas.height = wh;
 
 const winPrimaryCtx = winPrimaryCanvas.getContext(`2d`);
 
-const drawOptions = (img) => {
-  return [img, (ww - img.width) / 2, (wh - img.height) / 2];
-};
-
 const drawImages = (ctx) => {
   const airplane = document.querySelector(`#airplane`);
   const back = document.querySelector(`#back`);
-  const ice = document.querySelector(`#ice`);
   const walrus = document.querySelector(`#walrus`);
   const snowflake = document.querySelector(`#snowflake`);
+  const snowflake2 = document.querySelector(`#snowflake2`);
   const tree = document.querySelector(`#tree`);
   const tree2 = document.querySelector(`#tree2`);
 
-  ctx.drawImage(...drawOptions(airplane));
-  ctx.drawImage(...drawOptions(back));
-  ctx.drawImage(...drawOptions(ice));
-  ctx.drawImage(...drawOptions(walrus));
-  ctx.drawImage(...drawOptions(snowflake));
-  ctx.drawImage(...drawOptions(tree));
-  ctx.drawImage(...drawOptions(tree2));
+  ctx.drawImage(back, 85, 0);
+  ctx.drawImage(tree, 416, 123);
+  ctx.drawImage(tree2, 370, 61);
+  ctx.drawImage(walrus, 103, 78);
+  ctx.drawImage(snowflake, 0, 83);
+  ctx.drawImage(airplane, 659, 39);
+  ctx.drawImage(snowflake2, 490, 174);
 };
 
+const animationTick = (from, to, progress) => {
+  return from + progress * Math.sign(to - from) * Math.abs(to - from);
+}
+
+const walrusTranslateYAnimationTick = (from, to, progress) => {
+  walrusTranslateY = animationTick(from, to, progress);
+};
+
+const drawWalrus = (ctx) => {
+  const walrus = document.querySelector(`#walrus`);
+
+  ctx.drawImage(walrus, (ww - walrus.width) / 2, (wh - walrus.height) / 2);
+};
 
 window.addEventListener(`load`, () => {
-  drawImages(winPrimaryCtx);
+  // drawImages(winPrimaryCtx);
+  drawWalrus(winPrimaryCtx);
 });
