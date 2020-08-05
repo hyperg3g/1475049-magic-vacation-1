@@ -346,13 +346,23 @@
       <div class="screen__wrapper">
         <div class="result result--trip">
           <div class="result__image">
-            <picture>
+            <picture style="display: none">
               <source srcset="img/result1-mob.png 1x, img/result1-mob@2x.png 2x" media="(max-width: 768px) and (orientation: portrait)">
               <img src="img/result1.png" srcset="img/result1@2x.png 2x" alt="">
             </picture>
+            <canvas id="win-primary"></canvas>
+            <div id="win-primary-images" style="display: none">
+              <img id="airplane" src="img/win-primary-images/airplane.png" width="82" height="79">
+              <img id="back" src="img/win-primary-images/back.png" width="586" height="324">
+              <img id="ice" src="img/win-primary-images/ice.png" width="408" height="167">
+              <img id="walrus" src="img/win-primary-images/walrus.png" width="271" height="212">
+              <img id="snowflake" src="img/win-primary-images/snowflake.png" width="119" height="141">
+              <img id="tree" src="img/win-primary-images/tree.png" width="38" height="101">
+              <img id="tree2" src="img/win-primary-images/tree-2.png" width="50" height="159">
+            </div>
           </div>
           <h2 class="result__title">
-            <span class="visually-hidden">ПОбеда!</span>
+            <span class="visually-hidden">Победа!</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 568.85 109.24">
               <path d="M16,24.44V92H2.6V8H75V92H61.52V24.44H16Z" transform="translate(-2.1 -1.5)" fill="none" stroke="currentColor"/>
               <path

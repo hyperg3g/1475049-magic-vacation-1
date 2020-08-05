@@ -28,3 +28,39 @@ setupAnimationsForPrizes();
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
 timer.init();
+
+const winPrimaryCanvas = document.querySelector(`#win-primary`);
+const ww = window.innerWidth;
+const wh = window.innerHeight;
+
+winPrimaryCanvas.width = ww;
+winPrimaryCanvas.height = wh;
+
+const winPrimaryCtx = winPrimaryCanvas.getContext(`2d`);
+
+const drawOptions = (img) => {
+  return [img, (ww - img.width) / 2, (wh - img.height) / 2];
+};
+
+const drawImages = (ctx) => {
+  const airplane = document.querySelector(`#airplane`);
+  const back = document.querySelector(`#back`);
+  const ice = document.querySelector(`#ice`);
+  const walrus = document.querySelector(`#walrus`);
+  const snowflake = document.querySelector(`#snowflake`);
+  const tree = document.querySelector(`#tree`);
+  const tree2 = document.querySelector(`#tree2`);
+
+  ctx.drawImage(...drawOptions(airplane));
+  ctx.drawImage(...drawOptions(back));
+  ctx.drawImage(...drawOptions(ice));
+  ctx.drawImage(...drawOptions(walrus));
+  ctx.drawImage(...drawOptions(snowflake));
+  ctx.drawImage(...drawOptions(tree));
+  ctx.drawImage(...drawOptions(tree2));
+};
+
+
+window.addEventListener(`load`, () => {
+  drawImages(winPrimaryCtx);
+});
