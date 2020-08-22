@@ -57,7 +57,9 @@ const rotateCtx = (ctx, angle, cx, cy) => {
 };
 
 const runSerialAnimations = async (animations) => {
-  animations.forEach(async (animation) => await animation());
+  for (const animation of animations) {
+    await animation();
+  }
 };
 
 export {animateDuration, animateProgress, animateEasing, animationTick, rotateCtx, runSerialAnimations};
