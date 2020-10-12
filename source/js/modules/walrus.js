@@ -1,6 +1,5 @@
-import {elasticOut, elastic} from '../helpers/time-functions';
+import {elasticOut} from '../helpers/time-functions';
 import {
-  animateDuration,
   animateProgress,
   animateEasing,
   animationTick,
@@ -12,11 +11,6 @@ const ANIMATION_DURATION = 3000;
 
 const ww = window.innerWidth;
 const wh = window.innerHeight;
-
-const canvas = document.querySelector(`#win-primary`);
-const ctx = canvas.getContext(`2d`);
-canvas.width = ww;
-canvas.height = wh;
 
 const walrusImgDom = document.querySelector(`#walrus`);
 const topEdge = (wh - walrusImgDom.height) / 2;
@@ -37,28 +31,26 @@ const rotationTick = (from, to) => (progress) => {
   angle = animationTick(from, to, progress);
 };
 
-const draw = () => {
-  ctx.save();
-  ctx.clearRect(0, 0, ww, wh);
-  ctx.translate(0, translateY);
-  rotateCtx(ctx, angle, rotationPoint.x, rotationPoint.y);
-  ctx.drawImage(walrusImgDom, leftEdge, topEdge);
-  ctx.restore();
-};
+const walrus = (ctx) => new Promise((resolve) => {
+  const rotateSeries = [
+    () => animateProgress(rotationTick(30, 30), 200),
+    () => animateEasing(rotationTick(30, 0), ANIMATION_DURATION - 200, elasticOut(3))
+  ];
 
-const rotateSeries = [
-  () => animateProgress(rotationTick(30, 30), 200),
-  () => animateEasing(rotationTick(30, 0), ANIMATION_DURATION - 200, elasticOut(3))
-];
+  const draw = () => {
+    ctx.save();
+    ctx.translate(0, translateY);
+    rotateCtx(ctx, angle, rotationPoint.x, rotationPoint.y);
+    ctx.drawImage(walrusImgDom, leftEdge, topEdge);
+    ctx.restore();
+  };
 
-const animate = () => {
-  runSerialAnimations(rotateSeries);
-  animateEasing(translateYTick(wh / 2 + walrusImgDom.height / 2, 0), ANIMATION_DURATION, elasticOut(5));
-  animateDuration(draw, ANIMATION_DURATION);
-};
+  const animate = () => {
+    runSerialAnimations(rotateSeries);
+    animateEasing(translateYTick(wh / 2 + walrusImgDom.height / 2, 0), ANIMATION_DURATION, elasticOut(5));
+  };
 
-document.querySelector(`button[data-target="result"]`).onclick = () => {
-  animate();
-};
+  resolve({animate, draw});
+});
 
-
+export default walrus;

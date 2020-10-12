@@ -62,5 +62,14 @@ const runSerialAnimations = async (animations) => {
   }
 };
 
-export {animateDuration, animateProgress, animateEasing, animationTick, rotateCtx, runSerialAnimations};
+const repeatAnimation = async (animation, times) => {
+  let repeatCount = 0;
+
+  while (repeatCount !== times) {
+    repeatCount++;
+    await runSerialAnimations(animation);
+  }
+};
+
+export {animateDuration, animateProgress, animateEasing, animationTick, rotateCtx, runSerialAnimations, repeatAnimation};
 

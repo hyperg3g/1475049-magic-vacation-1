@@ -1,3 +1,11 @@
+const linear = (timeFraction) => timeFraction;
+
+const power = (n) => (timeFraction) => Math.pow(timeFraction, n);
+
+const circle = (timeFraction) => {
+  return 1 - Math.sin(Math.acos(timeFraction));
+};
+
 const makeEaseOut = (timing) => {
   return (timeFraction) => {
     return 1 - timing(1 - timeFraction);
@@ -10,4 +18,4 @@ const elasticIn = (x) => (timeFraction) => {
 
 const elasticOut = (x) => makeEaseOut(elasticIn(x));
 
-export {elasticIn, elasticOut};
+export {elasticIn, elasticOut, linear, power, circle};

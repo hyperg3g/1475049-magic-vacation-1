@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable new-cap */
 // These values are established by empiricism with tests (tradeoff: performance VS precision)
 let NEWTON_ITERATIONS = 4;
 let NEWTON_MIN_SLOPE = 0.001;
@@ -84,7 +86,7 @@ const bezierEasing = (mX1, mY1, mX2, mY2) => {
 
     for (
       ;
-      currentSample != lastSample && mSampleValues[currentSample] <= aX;
+      currentSample !== lastSample && mSampleValues[currentSample] <= aX;
       ++currentSample
     ) {
       intervalStart += kSampleStepSize;

@@ -11,7 +11,7 @@ import FullPageScroll from './modules/full-page-scroll';
 import pageLoad from './modules/page-load';
 import {rulesButtonLoad, setupAnimationsForPrizes} from './modules/common';
 import timer from './modules/timer';
-import walrus from './modules/walrus';
+import winPrimary from './modules/win-primary';
 
 // init modules
 mobileHeight();
@@ -25,6 +25,7 @@ social();
 pageLoad();
 rulesButtonLoad();
 setupAnimationsForPrizes();
+winPrimary();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
