@@ -8,42 +8,38 @@ import {
 
 const ww = window.innerWidth;
 const wh = window.innerHeight;
-
-const snowflakeImgDom = document.querySelector(`#snowflake`);
-// const snowflakeImgDom2 = document.querySelector(`#snowflake2`);
-
-const topEdge = (wh - snowflakeImgDom.height) / 2;
-const leftEdge = (ww - snowflakeImgDom.width) / 2;
 const snowflakeTranslateBezier = bezierEasing(0.5, 0.35, 0.47, 0.91);
 
-let translateY = 0;
-let opacity = 0;
+const snowflakes = (context, data) => new Promise((resolve) => {
+  const topEdge = (wh - data.img.height) / 2;
+  const leftEdge = (ww - data.img.width) / 2;
 
-const translateYTick = (from, to) => (progress) => {
-  translateY = animationTick(from, to, progress);
-};
+  const translateYTick = (from, to) => (progress) => {
+    data.translateY = animationTick(from, to, progress);
+  };
 
-const opacityTick = (from, to) => (progress) => {
-  opacity = animationTick(from, to, progress);
-};
+  const opacityTick = (from, to) => (progress) => {
+    data.alpha = animationTick(from, to, progress);
+  };
 
-const snowflakes = (context) => new Promise((resolve) => {
   const translateSeries = [
-    () => animateEasing(translateYTick(0, 30), 1000, snowflakeTranslateBezier),
-    () => animateEasing(translateYTick(30, 0), 1000, snowflakeTranslateBezier),
+    () => animateEasing(translateYTick(0, 20), 1000, snowflakeTranslateBezier),
+    () => animateEasing(translateYTick(20, 0), 1000, snowflakeTranslateBezier),
   ];
 
   const draw = () => {
     context.save();
-    // context.translate(0, translateY);
-    // context.globalAlpha = opacity;
-    context.drawImage(snowflakeImgDom, leftEdge - 200, topEdge);
+    context.translate(0, data.translateY);
+    context.globalAlpha = data.alpha;
+    context.drawImage(data.img, leftEdge + data.xShift, topEdge + data.yShift);
     context.restore();
   };
 
   const animate = () => {
-    animateEasing(opacityTick(0, 1), 400, linear);
-    repeatAnimation(translateSeries, 4);
+    setTimeout(() => {
+      animateEasing(opacityTick(0, 1), 600, linear);
+      repeatAnimation(translateSeries, 4);
+    }, data.delay);
   };
 
   resolve({animate, draw});
